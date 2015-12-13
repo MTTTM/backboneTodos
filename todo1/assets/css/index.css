@@ -131,7 +131,7 @@ label[for='toggle-all'] {
     border: none; /* Mobile Safari */
 }
 
-.toggle-all:before {
+/*.toggle-all:before {
     content: '■';
     font-size: 22px;
     color: #e6e6e6;
@@ -141,7 +141,7 @@ label[for='toggle-all'] {
 .toggle-all:checked:before {
     color: #737373;
 }
-
+*/
 .todo-list {
     margin: 0;
     padding: 0;
@@ -198,7 +198,7 @@ label[for='toggle-all'] {
 
 .todo-list li label {
     white-space: pre;
-    word-break: break-word;
+    word-break:break-word;
     padding: 15px 60px 15px 15px;
     margin-left: 45px;
     display: block;
@@ -313,7 +313,6 @@ html .clear-completed:active {
     line-height: 20px;
     text-decoration: none;
     cursor: pointer;
-    position: relative;
 }
 
 .clear-completed:hover {
@@ -356,12 +355,12 @@ html .clear-completed:active {
         height: 40px;
     }
 
-    .toggle-all {
+   /* .toggle-all {
         -webkit-transform: rotate(90deg);
         transform: rotate(90deg);
         -webkit-appearance: none;
         appearance: none;
-    }
+    }*/
 }
 
 @media (max-width: 430px) {

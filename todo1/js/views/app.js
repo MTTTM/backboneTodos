@@ -6,7 +6,7 @@ app.AppView = Backbone.View.extend({
     el:"#todoapp",
     statsTemplate: _.template($('#stats-template').html()),
     initialize: function() {
-        this.$allCheckbox=this.$("#toggle-all");
+        this.$allCheckbox=this.$("#toggle-all")[0];//使用原生的
         this.$input=this.$("#new-todo");
         this.$footer=this.$("#footer");
         this.$main=this.$("#main");
@@ -80,10 +80,8 @@ app.AppView = Backbone.View.extend({
     },
     toggleAllComplete: function () {
         var completed = this.$allCheckbox.checked;
-        var i=0;
-        console.log('---------'+app.Todos.length);
+            console.log(completed);
         app.Todos.each(function (todo) {
-            i++;console.log(i);
             todo.save({'completed': completed});
         });
     }
