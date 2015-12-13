@@ -6,17 +6,16 @@ app.AppView = Backbone.View.extend({
     el:"#todoapp",
     statsTemplate: _.template($('#stats-template').html()),
     initialize: function() {
-        this.$allCheckbox=this.$("#toggle-all")[0];
+        this.$allCheckbox=this.$("#toggle-all");
         this.$input=this.$("#new-todo");
         this.$footer=this.$("#footer");
         this.$main=this.$("#main");
 
         this.listenTo(app.Todos,'add',this.addOne);
         this.listenTo(app.Todos,'reset',this.addAll);
-
-        this.listenTo(app.todos,"change:completed",this.addOne);
-        this.listenTo(app.Todos,'filter',this.filterAll);
-        this.listenTo(app.Todos,'all',this.render);
+        this.listenTo(app.Todos,"change:completed",this.filterOne);
+     this.listenTo(app.Todos,'filter',this.filterAll);
+      this.listenTo(app.Todos,'all',this.render);
         app.Todos.fetch();
     },
     events: {
@@ -64,7 +63,7 @@ app.AppView = Backbone.View.extend({
     newAttributes:function(){
         return{
             title:this.$input.val().trim(),
-            order:app.Todos.nextOrder(),
+            order:app.Todos.nextOrder(),//order是用来做排序的
             completed:false
         }
     },

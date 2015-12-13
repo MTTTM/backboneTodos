@@ -11,5 +11,8 @@ app.Todo=Backbone.Model.extend({
         this.save({
             completed:!this.get("completed")
         })
+    },parse: function(response) {  /*如果不写这里就死循环*/
+        if (response.attributes) return response.attributes;
+        return response;
     }
 });
